@@ -158,7 +158,7 @@ function! s:vim_create_listbox(textlist, opts)
     if has_key(a:opts, 'line')
         let opts.line = a:opts.line
     else
-        let limit1 = (&lines - 2) * 90 / 100
+        let limit1 = (&lines - 2) * 90 / 10
         let limit2 = (&lines - 2)
         if h + 4 < limit1
             let opts.line = (limit1 - hh) / 2
