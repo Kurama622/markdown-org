@@ -649,16 +649,3 @@ function! org#listbox#open(content, opts)
         return s:nvim_create_listbox(a:content, a:opts)
     endif
 endfunc
-
-
-if 1
-    let content = [
-                \ [ 'echo 1', 'echo 100' ],
-                \ [ 'echo 2', 'echo 200' ],
-                \ [ 'echo 3', 'echo 300' ],
-                \ [ 'echo 4' ],
-                \ [ 'echo 5', 'echo 500' ],
-                \]
-    let opts = {'title': 'select'}
-    call org#listbox#open(content, opts)
-endif

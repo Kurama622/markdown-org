@@ -6,7 +6,7 @@ if 1
 				\ [ 'echo 4' ],
 				\ [ 'echo 5', 'echo 500' ],
 				\]
-	let opts = {'title': 'select'}
+	let opts = {'title': 'select', 'border': '2'}
 	call org#listbox#open(content, opts)
 endif
 
