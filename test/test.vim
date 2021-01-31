@@ -6,8 +6,9 @@ if 1
 				\ [ 'lua' ],
 				\ [ 'c++', 'echo 500' ],
 				\]
-	let opts = {'title': 'select a ', 'border': '2'}
+	let opts = {'title': 'Select ', 'border': '3'}
 	call org#listbox#open(content, opts)
+
 endif
 
 if 0

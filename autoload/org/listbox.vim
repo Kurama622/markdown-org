@@ -152,7 +152,7 @@ function! s:vim_create_listbox(textlist, opts)
         let w = &columns - 4
         let w = (w < 1)? 1 : w
     endif
-    let opts = {"minwidth":w, "minheight":h, "maxwidth":w, "maxheight":h}
+    let opts = {"minwidth":w+20, "minheight":h+20, "maxwidth":w, "maxheight":h}
     let ww = w + ((border != 0)? 2 : 0)
     let hh = h + ((border != 0)? 2 : 0)
     if has_key(a:opts, 'line')
