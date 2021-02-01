@@ -1,6 +1,9 @@
 let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/getlanguage.py'
 
+let g:lanaguage_path = get(g:, 'lanaguage_path', ' ')
 
+
+echo g:lanaguage_path
 "```python
 "
 "```
@@ -11,8 +14,6 @@ func org#main#runCodeBlock()
     execute('/```')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    "echo codeBlockStartLN
-    "echo codeBlockEndLN
     let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| python")
 
     let resultList = split(resultText)

@@ -651,3 +651,4 @@ function! org#listbox#open(content, opts)
         return s:nvim_create_listbox(a:content, a:opts)
     endif
 endfunc
+
