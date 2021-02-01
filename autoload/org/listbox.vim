@@ -152,7 +152,6 @@ function! s:vim_create_listbox(textlist, opts)
         let w = &columns - 4
         let w = (w < 1)? 1 : w
     endif
-    let w = w + 20
     let opts = {"minwidth":w, "minheight":h, "maxwidth":w, "maxheight":h}
     let ww = w + ((border != 0)? 2 : 0)
     let hh = h + ((border != 0)? 2 : 0)
@@ -168,7 +167,6 @@ function! s:vim_create_listbox(textlist, opts)
         endif
         let opts.line = (opts.line < 1)? 1 : opts.line
     endif
-    echo opts.line
 
     if has_key(a:opts, 'col')
         let opts.col = a:opts.col
@@ -654,3 +652,9 @@ function! org#listbox#open(content, opts)
     endif
 endfunc
 
+let content = [
+            \ [ " \t python", 'echo 100' ],
+            \ [ " \t vim", 'echo 200' ],
+            \]
+let opts = {'title': 'Select A Language'}
+call org#listbox#open(content, opts)
