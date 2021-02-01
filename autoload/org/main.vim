@@ -15,8 +15,8 @@ func! org#main#runCodeBlock()
     if b:language=='golang' || b:language=='go'
         let gofile = expand('%<') . ".go"
         call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
-        let resultText = system(expand(g:language_path[b:language])  )
-        "call system("rm " . expand(gofile))
+        let resultText = system("cat " . expand(gofile) . "| " . expand(g:language_path[b:language]))
+        call system("rm " . expand(gofile))
     else
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
     endif
@@ -25,9 +25,9 @@ func! org#main#runCodeBlock()
     call org#listbox#inputlist(resultList, opts)
     "echo expand('%')
 endfunc
-call org#main#runCodeBlock()
+"call org#main#runCodeBlock()
 
-"finish
+finish
 "call org#main#runCodeBlock()
 
 func org#main#test()
