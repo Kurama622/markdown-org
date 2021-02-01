@@ -5,4 +5,4 @@ let g:language_path = {
             \ }
 
 echo expand('%<')
-nnoremap <M-c> :call org#main#runCodeBlock()<CR>
+nnoremap <M-c> <silent>:call org#main#runCodeBlock()<CR>
