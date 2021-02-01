@@ -1,7 +1,7 @@
 let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/getlanguage.py'
 let g:language_path = get(g:, 'language_path', ' ')
 
-echo g:language_path['python']
+"echo g:language_path['python']
 "```python
 "
 "```
