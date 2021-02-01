@@ -13,7 +13,7 @@ func org#main#runCodeBlock()
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
     if b:language == 'golang' || 'go'
-        execute('!touch ' . expand('%<') . '.go')
+        execute(':!touch ' . expand('%<') . '.go')
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
         "execute('!rm ' . expand('%<') . '.go')
     else
