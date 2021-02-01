@@ -22,6 +22,7 @@ func org#main#runCodeBlock()
     let resultList = split(resultText)
     let opts = {'title': 'result', 'border':5}
     call org#listbox#inputlist(resultList, opts)
+    echo expand('%')
 endfunc
 
 finish
