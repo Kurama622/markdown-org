@@ -1,1 +1,1 @@
-nnoremap <C><CR> :call org#main#runCodeBlock()<CR>
+nnoremap <M-c> :call org#main#runCodeBlock()<CR>
