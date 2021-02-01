@@ -19,3 +19,12 @@ func main() {
     fmt.Println("hello")
 }
 ```
+
+```c
+#include<stdio.h>
+
+int main(){
+    printf("hello");
+    return 0;
+}
+```
