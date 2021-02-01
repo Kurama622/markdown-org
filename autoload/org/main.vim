@@ -14,8 +14,6 @@ func! org#main#runCodeBlock()
     execute('py3f ' . expand(s:path))
     if b:language=='golang' || b:language=='go'
         let gofile = expand('%<') . ".go"
-        echo gofile
-        "call system("touch " . expand(file))
         call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
         let resultText = system(expand(g:language_path[b:language]) . expand(gofile) )
         call system("rm " . expand(gofile))
