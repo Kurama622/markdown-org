@@ -3,8 +3,8 @@ let g:language_path = get(g:, 'language_path', ' ')
 
 "echo g:language_path['python']
 "
-func org#main#runCodeBlock()
-    execute(':cd %:h')
+func! org#main#runCodeBlock()
+    "execute(':cd %:h')
     let curLineText =  getline('.')
     let codeBlockStartLN  = getpos('.')[1] + 1
     execute(':normal e')
@@ -12,18 +12,22 @@ func org#main#runCodeBlock()
     execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    if b:language == 'golang' || 'go'
-        call system("touch " . expand('%<') . ".go")
-        let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
-        "execute('!rm ' . expand('%<') . '.go')
+    if b:language=='golang' || b:language=='go'
+        let gofile = expand('%<') . ".go"
+        echo gofile
+        "call system("touch " . expand(file))
+        call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
+        let resultText = system(expand(g:language_path[b:language]) . expand(gofile) )
+        call system("rm " . expand(gofile))
     else
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
     endif
     let resultList = split(resultText)
     let opts = {'title': 'result', 'border':5}
     call org#listbox#inputlist(resultList, opts)
-    echo expand('%')
+    "echo expand('%')
 endfunc
+call org#main#runCodeBlock()
 
 finish
 "call org#main#runCodeBlock()
@@ -40,8 +44,15 @@ func org#main#test()
     let opts = {'title': 'result', 'border':5}
     call org#listbox#inputlist(content, opts)
 endfunc
-call org#main#test()
+"call org#main#test()
+func Test()
+    let a = 'go'
+    if a=='golang' || a == 'go'
+        echo a
+    endif
+endfunc
 
+call Test()
 finish
 print(0)
 print(0)
