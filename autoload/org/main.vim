@@ -12,9 +12,10 @@ func org#main#runCodeBlock()
     let codeBlockStartLN  = getpos('.')[1] + 1
     execute(':normal e')
     execute('/```')
+    execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| python")
+    let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand('g:lanaguage_path'))
 
     let resultList = split(resultText)
     let opts = {'title': 'result', 'border':5}
@@ -26,8 +27,8 @@ finish
 "call org#main#runCodeBlock()
 
 func org#main#test()
-    let a=39
-    let b=43
+    let a = 44
+    let b = 48
     "execute(':36,42w !python > tmp') . expand(xxx))
     let xxx = system("sed -n '" . expand(a) . "," . expand(b) . "p' " . expand('%') . '| python')
     let x = split(xxx)
