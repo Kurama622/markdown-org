@@ -418,10 +418,10 @@ let s:border_styles[1] = org#core#border_extract('+-+|-|+-+++')
 let s:border_styles[2] = org#core#border_extract('┌─┐│─│└─┘├┤')
 let s:border_styles[3] = org#core#border_extract('╔═╗║─║╚═╝╟╢')
 let s:border_styles[4] = org#core#border_extract('/-\|-|\-/++')
-let s:border_styles[5] = org#core#border_extract('╭─╮|─|╰─╯++')
+let s:border_styles[5] = org#core#border_extract('╭─╮|─|╰─╯├┤')
 
 "let s:border_ascii = org#core#border_extract('+-+|-|+-+++')
-let s:border_ascii = org#core#border_extract('╭─╮|─|╰─╯++')
+let s:border_ascii = org#core#border_extract('╭─╮|─|╰─╯├┤')
 
 function! org#core#border_install(name, pattern)
 	let s:border_styles[a:name] = org#core#border_extract(a:pattern)
