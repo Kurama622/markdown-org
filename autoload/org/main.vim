@@ -1,5 +1,6 @@
 let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/getlanguage.py'
 
+
 "```python
 "
 "```
@@ -12,33 +13,34 @@ func org#main#runCodeBlock()
     execute('py3f ' . expand(s:path))
     "echo codeBlockStartLN
     "echo codeBlockEndLN
-    execute(expand(codeBlockStartLN) . ',' . expand(codeBlockEndLN) . 'w !python')
+    let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| python")
+
+    let resultList = split(resultText)
+    let opts = {'title': 'result', 'border':5}
+    call org#listbox#inputlist(resultList, opts)
+    "echo resultText
 endfunc
 
+finish
 "call org#main#runCodeBlock()
 
+func org#main#test()
+    let a=39
+    let b=43
+    "execute(':36,42w !python > tmp') . expand(xxx))
+    let xxx = system("sed -n '" . expand(a) . "," . expand(b) . "p' " . expand('%') . '| python')
+    let x = split(xxx)
+    "let nx = len(x)
+    "for i in range(nx)
+    let content = x
+    let opts = {'title': 'result', 'border':5}
+    call org#listbox#inputlist(content, opts)
+endfunc
+call org#main#test()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+finish
+print(0)
+print(0)
+print(0)
+print(0)
+print(0)
