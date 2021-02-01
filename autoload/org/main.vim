@@ -15,7 +15,7 @@ func org#main#runCodeBlock()
     if b:language == 'golang' || 'go'
         execute('!touch ' . expand('%<') . '.go')
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
-        execute('!rm ' . expand('%<') . '.go')
+        "execute('!rm ' . expand('%<') . '.go')
     else
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
     endif
