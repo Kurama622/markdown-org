@@ -11,11 +11,11 @@ func org#main#runCodeBlock()
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
     "echo codeBlockStartLN
-    echo codeBlockEndLN
+    "echo codeBlockEndLN
     execute(expand(codeBlockStartLN) . ',' . expand(codeBlockEndLN) . 'w !python')
 endfunc
 
-call org#main#runCodeBlock()
+"call org#main#runCodeBlock()
 
 
 
