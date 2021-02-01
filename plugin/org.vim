@@ -1,7 +1,7 @@
 let g:language_path = {
             \ "python":"python",
             \ "python3":"python",
-            \ "go": "go build -o tmp && ./tmp && rm tmp",
+            \ "go": "go build" . expand('%<') . ".go -o tmp && ./tmp && rm tmp",
             \ "golang": "go build -o tmp && ./tmp && rm tmp",
             \ }
 

@@ -15,27 +15,27 @@ func! org#main#runCodeBlock()
     if b:language=='golang' || b:language=='go'
         let gofile = expand('%<') . ".go"
         call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
-        let resultText = system(expand(g:language_path[b:language]) . expand(gofile) )
-        call system("rm " . expand(gofile))
+        let resultText = system(expand(g:language_path[b:language])  )
+        "call system("rm " . expand(gofile))
     else
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
     endif
-    let resultList = split(resultText)
+    let resultList = split(resultText, '\n')
     let opts = {'title': 'result', 'border':5}
     call org#listbox#inputlist(resultList, opts)
     "echo expand('%')
 endfunc
-"call org#main#runCodeBlock()
+call org#main#runCodeBlock()
 
-finish
+"finish
 "call org#main#runCodeBlock()
 
 func org#main#test()
-    let a = 44
-    let b = 48
+    let a = 55
+    let b = 59
     "execute(':36,42w !python > tmp') . expand(xxx))
     let xxx = system("sed -n '" . expand(a) . "," . expand(b) . "p' " . expand('%') . '| python')
-    let x = split(xxx)
+    let x = split(xxx, '\n')
     "let nx = len(x)
     "for i in range(nx)
     let content = x
@@ -50,9 +50,9 @@ func Test()
     endif
 endfunc
 
-call Test()
+"call Test()
 finish
-print(0)
+print("ffakj flaf")
 print(0)
 print(0)
 print(0)
