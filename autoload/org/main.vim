@@ -14,7 +14,7 @@ func org#main#runCodeBlock()
     execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path))
+    let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
 
     let resultList = split(resultText)
     let opts = {'title': 'result', 'border':5}

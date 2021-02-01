@@ -8,7 +8,7 @@ for i in range(10):
     print(i)
 ```
 
-```python3
+```go
 package main
 
 import (
