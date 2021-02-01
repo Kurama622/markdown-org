@@ -25,7 +25,7 @@ func! org#main#runCodeBlock()
     call org#listbox#inputlist(resultList, opts)
     "echo expand('%')
 endfunc
-call org#main#runCodeBlock()
+"call org#main#runCodeBlock()
 
 finish
 "call org#main#runCodeBlock()
