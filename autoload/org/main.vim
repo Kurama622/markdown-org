@@ -6,6 +6,7 @@ let g:language_path = get(g:, 'language_path', ' ')
 "
 "```
 func org#main#runCodeBlock()
+    execute(':cd %:h')
     let curLineText =  getline('.')
     let codeBlockStartLN  = getpos('.')[1] + 1
     execute(':normal e')
@@ -13,8 +14,13 @@ func org#main#runCodeBlock()
     execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
-
+    if b:language == 'golang' || 'go'
+        execute('touch ' . expand('%') . '.go')
+        let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
+        execute('rm ' . expand('%') . '.go')
+    else
+        let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
+    endif
     let resultList = split(resultText)
     let opts = {'title': 'result', 'border':5}
     call org#listbox#inputlist(resultList, opts)
