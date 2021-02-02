@@ -34,6 +34,7 @@ func! org#main#runCodeBlock()
         let resultList = split(resultText, '\n')
         if resultText == ""
             let resultText = "No message output!"
+        endif
         let opts = {'title': 'result', 'border':5}
         call org#listbox#inputlist(resultList, opts)
     endif
