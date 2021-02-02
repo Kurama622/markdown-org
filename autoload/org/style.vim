@@ -17,7 +17,7 @@ let g:org#style#tip_head = '[tip]'
 let g:org#style#preview_w = 85
 let g:org#style#preview_h = 10
 let g:org#style#preview_number = 1
-let g:org#style#preview_bordercolor = '#00ff00'
-let g:org#style#bordercolor = '#00ff00'
+"let g:org#style#preview_bordercolor = '#00ff00'
+"let g:org#style#bordercolor = '#00ff00'
 
 
