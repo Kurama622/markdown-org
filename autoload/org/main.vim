@@ -36,7 +36,7 @@ func! org#main#runCodeBlock()
         call org#listbox#inputlist(resultList, opts)
     endif
 endfunc
-call org#main#runCodeBlock()
+"call org#main#runCodeBlock()
 
 finish
 "call org#main#runCodeBlock()
