@@ -5,4 +5,5 @@ let g:language_path = {
             \ "c": "gcc " . expand('%<') . ".c -Wall -o " . expand('%<') . " && ./" . expand('%<') . " && rm " . expand('%<'),
             \ }
 
+echo expand('%<')
 nnoremap <M-c> :call org#main#runCodeBlock()<CR>
