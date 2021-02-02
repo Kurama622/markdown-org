@@ -221,6 +221,7 @@ function! s:vim_create_listbox(textlist, opts)
     let hwnd.code = 0
     let hwnd.tag = ''
     let bc = get(a:opts, 'bordercolor', 'DefaultBorderColor')
+    echo bc
     let opts.borderhighlight = [bc, bc, bc, bc] 
     call popup_setoptions(winid, opts)
     call win_execute(winid, 'syn clear')
@@ -658,4 +659,4 @@ let linelist = [
             \ "line 1dakfajkfjafjkafjkagjkajf",
             \ "line 2",
             \ "line 3" ]
-echo org#listbox#inputlist(linelist, {'title':'select'})
+call  org#listbox#inputlist(linelist, {'title':'select'})
