@@ -261,7 +261,7 @@ function! org#core#popup_alloc(name)
 	let winid = popup_create([], opts)
 	call popup_hide(winid)
 	call win_execute(winid, 'setlocal nonumber nowrap signcolumn=no')
-	call setwinvar(winid, '&wincolor', '')
+	call setwinvar(winid, '&wincolor', [])
 	return winid
 endfunc
 

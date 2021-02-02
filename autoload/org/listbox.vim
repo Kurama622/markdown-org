@@ -175,7 +175,7 @@ function! s:vim_create_listbox(textlist, opts)
         let opts.col = (opts.col < 1)? 1 : opts.col
     endif
     call popup_move(winid, opts)
-    call setwinvar(winid, '&wincolor', get(a:opts, 'color', ''))
+    call setwinvar(winid, '&wincolor', get(a:opts, 'color', []))
     if get(a:opts, 'index', 0) >= 0
         let moveto = get(a:opts, 'index', 0) + 1
         call popup_show(winid)
@@ -220,7 +220,7 @@ function! s:vim_create_listbox(textlist, opts)
     let hwnd.state = 1
     let hwnd.code = 0
     let hwnd.tag = ''
-    let bc = get(a:opts, 'bordercolor', '')
+    let bc = get(a:opts, 'bordercolor', [])
     let opts.borderhighlight = [bc, bc, bc, bc] 
     call popup_setoptions(winid, opts)
     call win_execute(winid, 'syn clear')
@@ -505,7 +505,7 @@ function! s:nvim_create_listbox(textlist, opts)
     endif
     let border = get(a:opts, 'border', g:org#style#border)
     let background = -1
-    let hwnd.opts.color = get(a:opts, 'color', '')
+    let hwnd.opts.color = get(a:opts, 'color', [])
     let color = hwnd.opts.color
     if border > 0 && get(g:, 'org_nvim_simulate_border', 1) != 0
         let opts.row += 1
@@ -522,7 +522,8 @@ function! s:nvim_create_listbox(textlist, opts)
         let op.height = h+2
         let op.row = opts.row - 1
         let op.col = opts.col - 1
-        let bordercolor = get(a:opts, 'bordercolor', '')
+        let bordercolor = get(a:opts, 'bordercolor', [])
+        echo bordercolor
         let background = nvim_open_win(nbid, 0, op)
         call nvim_win_set_option(background, 'winhl', 'Normal:'. bordercolor)
     endif
