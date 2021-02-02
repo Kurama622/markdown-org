@@ -523,7 +523,6 @@ function! s:nvim_create_listbox(textlist, opts)
         let op.row = opts.row - 1
         let op.col = opts.col - 1
         let bordercolor = get(a:opts, 'bordercolor', 'OrgBorder')
-        echo bordercolor
         let background = nvim_open_win(nbid, 0, op)
         call nvim_win_set_option(background, 'winhl', 'Normal:'. bordercolor)
     endif
