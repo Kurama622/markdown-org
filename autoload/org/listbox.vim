@@ -175,7 +175,7 @@ function! s:vim_create_listbox(textlist, opts)
         let opts.col = (opts.col < 1)? 1 : opts.col
     endif
     call popup_move(winid, opts)
-    call setwinvar(winid, '&wincolor', get(a:opts, 'color', 'QuickBG'))
+    call setwinvar(winid, '&wincolor', get(a:opts, 'color', ['OrgBG']))
     if get(a:opts, 'index', 0) >= 0
         let moveto = get(a:opts, 'index', 0) + 1
         call popup_show(winid)
@@ -505,7 +505,7 @@ function! s:nvim_create_listbox(textlist, opts)
     endif
     let border = get(a:opts, 'border', g:org#style#border)
     let background = -1
-    let hwnd.opts.color = get(a:opts, 'color', 'QuickBG')
+    let hwnd.opts.color = get(a:opts, 'color', ['OrgBG'])
     let color = hwnd.opts.color
     if border > 0 && get(g:, 'org_nvim_simulate_border', 1) != 0
         let opts.row += 1
