@@ -53,7 +53,7 @@ func! org#main#runLanguage()
     echo blockEnd
 endfunc
 
-call org#main#runLanguage()
+"call org#main#runLanguage()
 
 "call org#main#runCodeBlock()
 
