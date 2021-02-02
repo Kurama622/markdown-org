@@ -480,7 +480,7 @@ function! s:nvim_create_listbox(textlist, opts)
         let w = (w < 1)? 1 : w
     endif
     let w = w + 20
-    let h = h+1
+    let h = h
     let ww = w + ((border != 0)? 2 : 0)
     let hh = h + ((border != 0)? 2 : 0)
     let opts = {'width':w, 'height':h, 'focusable':1, 'style':'minimal'}
