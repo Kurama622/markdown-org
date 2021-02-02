@@ -29,7 +29,7 @@ func! org#main#runCodeBlock()
             call system("rm " . expand(cfile))
         elseif b:language == 'cpp'
             let cppfile = expand('%<') . ".cpp"
-            call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cfile))
+            call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cppfile))
             let resultText = system(expand(g:language_path[b:language]) . " -std=c++11 " . expand(cppfile) . " -Wall -o " . expand('%<') . " && " . expand('%<') . " && rm " . expand('%<'))
             call system("rm " . expand(cppfile))
         else

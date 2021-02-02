@@ -8,7 +8,7 @@ import numpy as np
 a = np.ones((3,3))
 print("a = {}".format(a))
 
-print("=================")
+print("=======Hello python==========")
 for i in range(10):
     print(i)
 
@@ -22,7 +22,7 @@ import (
 )
 
 func main() {
-    fmt.Println("hello")
+    fmt.Println("Hello, go!")
 }
 ```
 
@@ -30,7 +30,7 @@ func main() {
 #include<stdio.h>
 
 int main(){
-    printf("hello");
+    printf("Hello, C!");
     return 0;
 }
 ```
@@ -40,7 +40,7 @@ int main(){
 using namespace std;
 int main()
 {
-    cout << "Hello, world!" << endl;
+    cout << "Hello, C++!" << endl;
     return 0;
 }
 ```
