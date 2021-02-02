@@ -520,7 +520,7 @@ function! s:nvim_create_listbox(textlist, opts)
         let op = {'relative':'editor', 'focusable':1, 'style':'minimal'}
         let op.width = w+20
         let op.height = h+3
-        let op.row = opts.row
+        let op.row = opts.row - 2
         let op.col = opts.col - 1
         let bordercolor = get(a:opts, 'bordercolor', 'QuickBorder')
         let background = nvim_open_win(nbid, 0, op)
