@@ -6,6 +6,7 @@ let g:language_path = get(g:, 'language_path', ' ')
 "echo g:language_path['python']
 "
 func! org#main#runCodeBlock()
+    execute('?```')
     let curLineText =  getline('.')
     let codeBlockStartLN  = getpos('.')[1] + 1
     execute(':normal e')
