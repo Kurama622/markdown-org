@@ -43,7 +43,7 @@ func! org#main#runCodeBlock()
             let resultText = "No message output!"
         endif
         let resultList = split(resultText, '\n')
-        let opts = {'title': 'RESULT', 'border':5}
+        let opts = {'title': 'RESULT', 'border':g:org#style#border}
         call org#listbox#inputlist(resultList, opts)
     endif
 endfunc
@@ -54,7 +54,7 @@ func! org#main#runLanguage()
     let b:startList = split(blockStart)
     let b:endList = split(blockEnd)
     execute('py3f ' . expand(s:runLanguagePath))
-    let opts = {'title': 'SELECT A LANGUAGE', 'border':5}
+    let opts = {'title': 'SELECT A LANGUAGE', 'border':g:org#style#border}
     call org#listbox#open(b:content, opts)
 endfunc
 
@@ -65,7 +65,7 @@ func! org#main#run(selectLang)
         let b:resultText = "No message output!"
     endif
     let resultList = split(b:resultText, '\n')
-    let opts = {'title': 'RESULT', 'border':5}
+    let opts = {'title': 'RESULT', 'border':g:org#style#border}
     call org#listbox#inputlist(resultList, opts)
 endfunc
 
