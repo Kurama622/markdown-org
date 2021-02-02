@@ -10,9 +10,10 @@ if get(g:, 'language_path', ' ') == ' '
                 \ }
 endif
 
-nnoremap <leader>c :call org#main#runCodeBlock()<CR>
-
-nnoremap <leader>C :call org#main#runLanguage()<CR>
+if get(g:, 'defual_quick_keys', 1)
+    nnoremap <leader>c :call org#main#runCodeBlock()<CR>
+    nnoremap <leader>C :call org#main#runLanguage()<CR>
+endif
 
 finish
 
