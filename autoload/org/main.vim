@@ -11,27 +11,32 @@ func! org#main#runCodeBlock()
     execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    if b:language=='go'
-        let gofile = expand('%<') . ".go"
-        call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
-        let cpgf = split(gofile, '/')[-1]
-        let resultText = system("(cd " . expand('%:h') . " && " . expand(g:language_path[b:language]) . " build -o tmp " . expand(cpgf) . " && ./tmp && rm tmp)")
-        call system("rm " . expand(gofile))
 
-    elseif b:language == 'c'
-        let cfile = expand('%<') . ".c"
-        call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cfile))
-        let resultText = system(expand(g:language_path[b:language]) . " " . expand(cfile) . " -Wall -o " . expand('%<') . " && " . expand('%<') . " && rm " . expand('%<'))
-        call system("rm " . expand(cfile))
+    if b:language == ''
+        echo 'Not find language'
     else
-        let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
-    endif
+        if b:language=='go'
+            let gofile = expand('%<') . ".go"
+            call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
+            let cpgf = split(gofile, '/')[-1]
+            let resultText = system("(cd " . expand('%:h') . " && " . expand(g:language_path[b:language]) . " build -o tmp " . expand(cpgf) . " && ./tmp && rm tmp)")
+            call system("rm " . expand(gofile))
 
-    let resultList = split(resultText, '\n')
-    let opts = {'title': 'result', 'border':5}
-    call org#listbox#inputlist(resultList, opts)
+        elseif b:language == 'c'
+            let cfile = expand('%<') . ".c"
+            call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cfile))
+            let resultText = system(expand(g:language_path[b:language]) . " " . expand(cfile) . " -Wall -o " . expand('%<') . " && " . expand('%<') . " && rm " . expand('%<'))
+            call system("rm " . expand(cfile))
+        else
+            let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
+        endif
+
+        let resultList = split(resultText, '\n')
+        let opts = {'title': 'result', 'border':5}
+        call org#listbox#inputlist(resultList, opts)
+    endif
 endfunc
-"call org#main#runCodeBlock()
+call org#main#runCodeBlock()
 
 finish
 "call org#main#runCodeBlock()
