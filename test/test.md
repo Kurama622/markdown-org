@@ -6,11 +6,11 @@ some lines
 ```python3
 import numpy as np
 a = np.ones((3,3))
-# print("a = {}".format(a))
+print("a = {}".format(a))
 
-# print("=================")
-# for i in range(10):
-    # print(i)
+print("=================")
+for i in range(10):
+    print(i)
 
 ```
 
@@ -31,6 +31,16 @@ func main() {
 
 int main(){
     printf("hello");
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Hello, world!" << endl;
     return 0;
 }
 ```
