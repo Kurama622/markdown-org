@@ -3,8 +3,8 @@ import re
 
 
 b = vim.current.buffer
-startList = vim.eval("startList")
-endList = vim.eval("endList")
+startList = vim.eval("b:startList")
+endList = vim.eval("b:endList")
 
 
 language = []
@@ -25,14 +25,4 @@ for lang in languageKinds:
     content.append([" \t {}".format(lang), 'call org#main#run("{}")'.format(lang)])
 
 b.vars['content'] = content
-
-# if re.search(r'```', curLineText) == None:
-    # b.vars['language'] = ''
-# else:
-    # try:
-        # start, end = re.search(r'[a-zA-Z0-9]+', curLineText).span()
-        # b.vars['language'] = curLineText[start:end]
-    # except:
-        # b.vars['language'] = ''
-
 

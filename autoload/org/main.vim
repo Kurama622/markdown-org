@@ -1,5 +1,6 @@
 let s:runCodeBlockPath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/getlanguage.py'
 let s:runLanguagePath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/recodelanguage.py'
+let s:runPath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/catCodeBlock.py'
 let g:language_path = get(g:, 'language_path', ' ')
 
 "echo g:language_path['python']
@@ -28,7 +29,7 @@ func! org#main#runCodeBlock()
             call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cfile))
             let resultText = system(expand(g:language_path[b:language]) . " " . expand(cfile) . " -Wall -o " . expand('%<') . " && " . expand('%<') . " && rm " . expand('%<'))
             call system("rm " . expand(cfile))
-        elseif b:language == 'cpp'
+        elseif b:language == 'cpp' || b:language == 'c++'
             let cppfile = expand('%<') . ".cpp"
             call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cppfile))
             let resultText = system(expand(g:language_path[b:language]) . " -std=c++11 " . expand(cppfile) . " -Wall -o " . expand('%<') . " && " . expand('%<') . " && rm " . expand('%<'))
@@ -48,18 +49,19 @@ endfunc
 
 func! org#main#runLanguage()
     let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp && rm tmp")
-    let blockEnd = system("grep -wn \"\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
-    let startList = split(blockStart)
-    let endList = split(blockEnd)
+    let blockEnd = system("grep -wn \"^\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
+    let b:startList = split(blockStart)
+    let b:endList = split(blockEnd)
     execute('py3f ' . expand(s:runLanguagePath))
-    echo b:languageKinds
     let opts = {'title': 'select a language', 'border':5}
     call org#listbox#open(b:content, opts)
 endfunc
 
 
 func! org#main#run(selectLang)
-    echo a:selectLang
+    execute('py3f ' . expand(s:runPath))
+    "if a:selectLang == 'python'
+    "endif
 endfunc
 
 call org#main#runLanguage()
@@ -88,10 +90,12 @@ endfunc
 finish
 
 
-```python
+```go
+print('hello')
 ```
 
-```python
+```go
+print('world')
 ```
 
 ```
