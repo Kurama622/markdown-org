@@ -480,7 +480,7 @@ function! s:nvim_create_listbox(textlist, opts)
         let w = (w < 1)? 1 : w
     endif
     let w = w + 20
-    let h = h + 2
+    let h = h
     let ww = w + ((border != 0)? 2 : 0)
     let hh = h + ((border != 0)? 2 : 0)
     let opts = {'width':w, 'height':h, 'focusable':1, 'style':'minimal'}
@@ -519,8 +519,8 @@ function! s:nvim_create_listbox(textlist, opts)
         let nbid = org#core#scratch_buffer('listborder', back)
         let op = {'relative':'editor', 'focusable':1, 'style':'minimal'}
         let op.width = w+20
-        let op.height = h+3
-        let op.row = opts.row - 2
+        let op.height = h+2
+        let op.row = opts.row - 1
         let op.col = opts.col - 1
         let bordercolor = get(a:opts, 'bordercolor', 'QuickBorder')
         let background = nvim_open_win(nbid, 0, op)
@@ -652,4 +652,3 @@ function! org#listbox#open(content, opts)
         return s:nvim_create_listbox(a:content, a:opts)
     endif
 endfunc
-
