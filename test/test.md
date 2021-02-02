@@ -48,3 +48,7 @@ int main()
     return 0;
 }
 ```
+## TEST JAVASCRIPT
+```javascript
+console.log("Hello js!")
+```
