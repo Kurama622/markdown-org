@@ -479,7 +479,7 @@ function! s:nvim_create_listbox(textlist, opts)
         let w = &columns - 4
         let w = (w < 1)? 1 : w
     endif
-    let w = w
+    let w = w + 20
     let h = h
     let ww = w + ((border != 0)? 2 : 0)
     let hh = h + ((border != 0)? 2 : 0)
@@ -518,8 +518,8 @@ function! s:nvim_create_listbox(textlist, opts)
         let back = org#utils#make_border(w, h, border, title, button)
         let nbid = org#core#scratch_buffer('listborder', back)
         let op = {'relative':'editor', 'focusable':1, 'style':'minimal'}
-        let op.width = w
-        let op.height = h
+        let op.width = w+2
+        let op.height = h+2
         let op.row = opts.row - 1
         let op.col = opts.col - 1
         let bordercolor = get(a:opts, 'bordercolor', 'QuickBorder')
