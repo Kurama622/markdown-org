@@ -43,7 +43,7 @@ func! org#main#runCodeBlock()
             let resultText = "No message output!"
         endif
         let resultList = split(resultText, '\n')
-        let opts = {'title': 'RESULT', 'border':g:org#style#border}
+        let opts = {'index':g:org#listbox#cursor, 'title': 'RESULT', 'border':g:org#style#border}
         call org#listbox#inputlist(resultList, opts)
     endif
 endfunc
