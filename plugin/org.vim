@@ -1,4 +1,4 @@
-if get(g:, 'language_path', ' ')
+if get(g:, 'language_path', ' ') == ' '
     let g:language_path = {
                 \ "python":"python",
                 \ "python3":"python3",
