@@ -1,4 +1,5 @@
-let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/getlanguage.py'
+let s:runCodeBlockPath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/getlanguage.py'
+let s:runLanguagePath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/recodelanguage.py'
 let g:language_path = get(g:, 'language_path', ' ')
 
 "echo g:language_path['python']
@@ -10,7 +11,7 @@ func! org#main#runCodeBlock()
     execute('/```')
     execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
-    execute('py3f ' . expand(s:path))
+    execute('py3f ' . expand(s:runCodeBlockPath))
 
     if b:language == ''
         echo 'Not find language'
@@ -44,7 +45,20 @@ func! org#main#runCodeBlock()
         call org#listbox#inputlist(resultList, opts)
     endif
 endfunc
+
+func! org#main#runLanguage()
+    let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
+    let blockEnd = system("grep -wn \"\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
+    "echo blockStart
+    echo blockEnd
+endfunc
+
+call org#main#runLanguage()
+
 "call org#main#runCodeBlock()
+
+
+
 
 finish
 "call org#main#runCodeBlock()
@@ -62,17 +76,12 @@ func org#main#test()
     call org#listbox#inputlist(content, opts)
 endfunc
 "call org#main#test()
-func Test()
-    let a = 'go'
-    if a=='golang' || a == 'go'
-        echo a
-    endif
-endfunc
-
-"call Test()
 finish
-print("ffakj flaf")
-print(0)
-print(0)
-print(0)
-print(0)
+
+
+```python
+```
+
+```
+
+```object-c+
