@@ -4,7 +4,6 @@ let g:language_path = get(g:, 'language_path', ' ')
 "echo g:language_path['python']
 "
 func! org#main#runCodeBlock()
-    "execute(':cd %:h')
     let curLineText =  getline('.')
     let codeBlockStartLN  = getpos('.')[1] + 1
     execute(':normal e')
@@ -12,10 +11,11 @@ func! org#main#runCodeBlock()
     execute(':nohl')
     let codeBlockEndLN  = getpos('.')[1] - 1
     execute('py3f ' . expand(s:path))
-    if b:language=='golang' || b:language=='go'
+    if b:language=='go'
         let gofile = expand('%<') . ".go"
         call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
-        let resultText = system("cat " . expand(gofile) . "| " . expand(g:language_path[b:language]))
+        let cpgf = split(gofile, '/')[-1]
+        let resultText = system("(cd " . expand('%:h') . "&& cat " . expand(cpgf) . "| " . expand(g:language_path[b:language]) . ")")
         call system("rm " . expand(gofile))
     else
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
@@ -25,7 +25,7 @@ func! org#main#runCodeBlock()
     call org#listbox#inputlist(resultList, opts)
     "echo expand('%')
 endfunc
-"call org#main#runCodeBlock()
+call org#main#runCodeBlock()
 
 finish
 "call org#main#runCodeBlock()
