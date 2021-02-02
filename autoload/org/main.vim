@@ -15,7 +15,9 @@ func! org#main#runCodeBlock()
         let gofile = expand('%<') . ".go"
         call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
         let cpgf = split(gofile, '/')[-1]
-        let resultText = system("(cd " . expand('%:h') . "&& cat " . expand(cpgf) . "| " . expand(g:language_path[b:language]) . ")")
+        "\ "go": "go build %<.go -o tmp && ./tmp && rm tmp",
+        "let resultText = system("(cd " . expand('%:h') . "&& cat " . expand(cpgf) . "| " . expand(g:language_path[b:language]) . ")")
+        let resultText = system("(cd " . expand('%:h') . expand(g:language_path[b:language]) . expand(cpgf) . " -o tmp && rm tmp)")
         call system("rm " . expand(gofile))
 
     elseif b:language == 'c'
