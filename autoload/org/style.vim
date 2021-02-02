@@ -17,11 +17,5 @@ let g:org#style#tip_head = '[tip]'
 let g:org#style#preview_w = 85
 let g:org#style#preview_h = 10
 let g:org#style#preview_number = 1
-"let g:org#style#preview_bordercolor = '#00ff00'
-"hi! DefaultBorderColor ctermfg=7 ctermbg=0 guifg=black guibg=#00ff00
-"let g:org#style#bordercolor = 'DefaultBorderColor'
-"
 
-hi def link OrgBG                  Normal
-hi def link OrgBorder            NormalFloat
 
