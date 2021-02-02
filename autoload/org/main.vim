@@ -31,10 +31,10 @@ func! org#main#runCodeBlock()
             let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
         endif
 
-        let resultList = split(resultText, '\n')
         if resultText == ""
             let resultText = "No message output!"
         endif
+        let resultList = split(resultText, '\n')
         let opts = {'title': 'result', 'border':5}
         call org#listbox#inputlist(resultList, opts)
     endif
