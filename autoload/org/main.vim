@@ -17,6 +17,11 @@ func! org#main#runCodeBlock()
         let cpgf = split(gofile, '/')[-1]
         let resultText = system("(cd " . expand('%:h') . "&& cat " . expand(cpgf) . "| " . expand(g:language_path[b:language]) . ")")
         call system("rm " . expand(gofile))
+    elseif b:language == 'c'
+        let cfile = expand('%<') . ".c"
+        call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(cfile))
+        let resultText = system( expand(g:language_path[b:language]))
+        call system("rm " . expand(cfile))
     else
         let resultText = system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "| " . expand(g:language_path[b:language]))
     endif
