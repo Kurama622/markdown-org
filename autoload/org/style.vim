@@ -10,7 +10,9 @@
 "----------------------------------------------------------------------
 " default border style: 1/ascii, 2/single, 3/double
 "----------------------------------------------------------------------
-let g:org#style#border = get(g:, 'org#style#border', 5)
+if get(g:, 'org#style#border', 0)
+    let g:org#style#border = get(g:, 'org#style#border', 5)
+endif
 
 let g:org#style#tip_head = '[tip]'
 
