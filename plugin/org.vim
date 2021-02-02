@@ -9,6 +9,7 @@ let g:language_path = {
             \ }
 
 nnoremap <M-c> :call org#main#runCodeBlock()<CR>
+nnoremap <M-d> :call org#main#runCodeBlock()<CR>
 
 finish
 

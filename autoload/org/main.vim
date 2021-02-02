@@ -49,7 +49,7 @@ endfunc
 
 func! org#main#runLanguage()
     let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp && rm tmp")
-    let blockEnd = system("grep -wn \"^\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
+    let blockEnd = system("grep -wn \"^\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp && rm tmp")
     let b:startList = split(blockStart)
     let b:endList = split(blockEnd)
     execute('py3f ' . expand(s:runLanguagePath))
@@ -60,11 +60,15 @@ endfunc
 
 func! org#main#run(selectLang)
     execute('py3f ' . expand(s:runPath))
-    "if a:selectLang == 'python'
-    "endif
+    if b:resultText == ""
+        let b:resultText = "No message output!"
+    endif
+    let resultList = split(b:resultText, '\n')
+    let opts = {'title': 'result', 'border':5}
+    call org#listbox#inputlist(resultList, opts)
 endfunc
 
-call org#main#runLanguage()
+"call org#main#runLanguage()
 
 "call org#main#runCodeBlock()
 
@@ -91,13 +95,48 @@ finish
 
 
 ```go
-print('hello')
+package main
+
+import "fmt"
 ```
 
 ```go
+func main() {
+    fmt.Println("hello")
+    }
+```
+```c
+#include<stdio.h>
+int main(){
+    printf("hello");
+    return 0;
+}
+
+```
+
+
+
+
+```c++
+#include <iostream>
+```
+
+
+```python
 print('world')
 ```
 
+
+```c++
+using namespace std;
+int main()
+{
+    cout << "Hello, C++!" << endl;
+    return 0;
+}
+
 ```
 
-```object-c
+```python
+print('hello')
+```
