@@ -15,9 +15,7 @@ func! org#main#runCodeBlock()
         let gofile = expand('%<') . ".go"
         call system("sed -n '" . expand(codeBlockStartLN) . "," . expand(codeBlockEndLN) . "p' " . expand('%') . "> " . expand(gofile))
         let cpgf = split(gofile, '/')[-1]
-        "echo g:language_path[b:language]
-        echo cpgf
-        let resultText = system("(cd " . expand('%:h') . " && " . expand(g:language_path[b:language]) . " -o tmp " . expand(cpgf) . " && ./tmp && rm tmp)")
+        let resultText = system("(cd " . expand('%:h') . " && " . expand(g:language_path[b:language]) . " build -o tmp " . expand(cpgf) . " && ./tmp && rm tmp)")
         call system("rm " . expand(gofile))
 
     elseif b:language == 'c'
@@ -32,9 +30,8 @@ func! org#main#runCodeBlock()
     let resultList = split(resultText, '\n')
     let opts = {'title': 'result', 'border':5}
     call org#listbox#inputlist(resultList, opts)
-    "echo expand('%')
 endfunc
-call org#main#runCodeBlock()
+"call org#main#runCodeBlock()
 
 finish
 "call org#main#runCodeBlock()
