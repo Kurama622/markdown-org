@@ -20,8 +20,9 @@ endif
 
 
 let s:fname = s:rtp . '/colors/org/default.vim'
-exec "source " . fnameescape(s:fname)
+"exec "source " . fnameescape(s:fname)
 
+autocmd ColorScheme s:fname
 "hi! link QuickBG QuickDefaultBackground
 "hi! link QuickSel QuickDefaultSel
 "hi! link QuickKey QuickDefaultKey
