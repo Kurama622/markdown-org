@@ -1,9 +1,6 @@
 # TEST MARKDOWN FILE
 
-some lines
-
 ## TEST PYTHON
-
 ```python
 import numpy as np
 a = np.ones((3,3))
