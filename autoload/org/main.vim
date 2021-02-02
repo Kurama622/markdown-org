@@ -47,13 +47,22 @@ func! org#main#runCodeBlock()
 endfunc
 
 func! org#main#runLanguage()
-    let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
+    let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp && rm tmp")
     let blockEnd = system("grep -wn \"\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp")
-    "echo blockStart
-    echo blockEnd
+    let startList = split(blockStart)
+    let endList = split(blockEnd)
+    execute('py3f ' . expand(s:runLanguagePath))
+    echo b:languageKinds
+    let opts = {'title': 'select a language', 'border':5}
+    call org#listbox#open(b:content, opts)
 endfunc
 
-"call org#main#runLanguage()
+
+func! org#main#run(selectLang)
+    echo a:selectLang
+endfunc
+
+call org#main#runLanguage()
 
 "call org#main#runCodeBlock()
 
@@ -82,6 +91,9 @@ finish
 ```python
 ```
 
+```python
 ```
 
-```object-c+
+```
+
+```object-c

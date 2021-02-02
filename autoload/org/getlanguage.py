@@ -9,7 +9,7 @@ if re.search(r'```', curLineText) == None:
     b.vars['language'] = ''
 else:
     try:
-        start, end = re.search(r'[a-zA-Z0-9]+', curLineText).span()
+        start, end = re.search(r'[a-zA-Z0-9\-\+#]+', curLineText).span()
         b.vars['language'] = curLineText[start:end]
     except:
         b.vars['language'] = ''
