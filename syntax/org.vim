@@ -10,7 +10,13 @@ if exists('b:current_syntax')
   finish
 endif
 
+"syntax match TranslatorQuery               /\v⟦.*⟧/
+"syntax match TranslatorDelimiter           /\v\─.*\─/
 
+"hi def link TranslatorQuery             Identifier
+"hi def link TranslatorDelimiter         Comment
+
+hi def link OrgBG                  Normal
 hi def link OrgBorder            NormalFloat
 
 let b:current_syntax = 'Org'

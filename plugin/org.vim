@@ -1,6 +1,3 @@
-"let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-"let s:rtp = fnamemodify(s:home, ':h')
-
 if get(g:, 'language_path', {}) == {}
     let g:language_path = {
                 \ "python":"python",
@@ -18,10 +15,5 @@ if get(g:, 'default_quick_keys', 1)
     nnoremap <leader>C :call org#main#runLanguage()<CR>
 endif
 
-
-"let s:fname = s:rtp . '/colors/org/default.vim'
-""exec "source " . fnameescape(s:fname)
-
-colorscheme s:fname
 finish
 
