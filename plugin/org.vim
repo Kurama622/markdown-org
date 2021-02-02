@@ -10,10 +10,9 @@ if get(g:, 'language_path', ' ')
                 \ }
 endif
 
-nnoremap <C-Enter> :call org#main#runCodeBlock()<CR>
+nnoremap <leader>c :call org#main#runCodeBlock()<CR>
 
-
-nnoremap <C-S-Enter> :call org#main#runLanguage()<CR>
+nnoremap <leader>C :call org#main#runLanguage()<CR>
 
 finish
 
