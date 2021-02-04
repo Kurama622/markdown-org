@@ -48,5 +48,58 @@ let g:default_quick_keys = 1
 | `g:org#style#bordercolor` | 设置边框颜色                                 |
 | `g:org#style#color`       | 设置结果文本的颜色                           |
 
-#### 0
+#### 边框样式
+| 边框编号 | 效果展示                                                                     |
+|:--------:|:----------------------------------------------------------------------------:|
+|  border0 | <img src="./sceenshot/border0.png" alt="border0" height="50%" width="50%" /> |
+|  border1 | <img src="./sceenshot/border1.png" alt="border1" height="50%" width="50%" /> |
+|  border2 | <img src="./sceenshot/border2.png" alt="border2" height="50%" width="50%" /> |
+|  border3 | <img src="./sceenshot/border3.png" alt="border3" height="50%" width="50%" /> |
+|  border4 | <img src="./sceenshot/border4.png" alt="border4" height="50%" width="50%" /> |
+|  border5 | <img src="./sceenshot/border5.png" alt="border5" height="50%" width="50%" /> |
 
+### 自定义参数和快捷键设置
+如果你不想使用默认配置，你可以自定义一些参数和快捷键。示例如下：
+
+```vim
+let g:default_quick_keys = 0
+let g:org#style#border = 2
+let g:org#style#bordercolor = 'keyword'
+let g:org#style#color = 'Identifier'
+let g:language_path = {
+            \ "python":"python",
+            \ "python3":"python3",
+            \ "go": "go",
+            \ "c": "gcc",
+            \ "cpp": "g++",
+            \ "c++": "g++",
+            \ "javascript": "node",
+            \ }
+nnoremap <silent> <M-b> :call org#main#runCodeBlock()<CR>
+nnoremap <silent> <M-l> :call org#main#runLanguage()<CR>
+```
+1. 你需要将`g:default_quick_keys`置为0，以表示禁用默认设置。
+
+2. `g:org#style#border` 可以设置为0-5中的数值。
+
+3. `g:org#style#bordercolor`和`g:org#style#color`设置为不同的高亮色。你可以设置为`keyword`、`Identifier`、`Statement`、`Comment`、`PreProc`、`Ignore`、`Label`、`Conditional`、`Exception`等不同的值，具体效果会根据你的主题而定。
+
+4. `g:language_path`写入不同语言的环境路径，如果你环境配置的没有问题，默认的设置就可以很好的工作，如果你的环境有问题，比如你输入python并不能启动python的交互模式，那么你可以将你python的路径写入到`g:language_path`中：
+```vim
+let g:language_path = {
+            \ "python":"/usr/bin/python",
+            \ "python3":"python3",
+            \ "go": "go",
+            \ "c": "gcc",
+            \ "cpp": "g++",
+            \ "c++": "g++",
+            \ "javascript": "node",
+            \ }
+
+```
+5. `org#mian#runCodeBlock`为运行代码块的函数，`org#main#runLanguage`为运行某种语言的函数，你可以按照上面例子绑定到你所喜欢的按键上。
+
+---
+## 致谢
+
+**最后，浮动窗口的设计主要参考了[韦大](https://github.com/skywind3000)的[vim-quickui](https://github.com/skywind3000/vim-quickui)，感谢韦大提供的优秀范例。**
