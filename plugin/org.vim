@@ -11,7 +11,7 @@ if get(g:, 'language_path', {}) == {}
 endif
 
 if get(g:, 'default_quick_keys', 1)
-    nnoremap <M-c> :call org#main#runCodeBlock()<CR>
+    nnoremap <M-b> :call org#main#runCodeBlock()<CR>
     nnoremap <M-l> :call org#main#runLanguage()<CR>
 endif
 
