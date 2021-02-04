@@ -44,12 +44,12 @@ let g:default_quick_keys = 1
 | `Alt+b`                   | 展开当前代码片段的运行结果                   |
 | `Alt+l`                   | 运行某种语言的所有代码片段，会弹出语言选择框 |
 | `g:language_path`         | 设置语言的环境路径                           |
-| `g:org#style#border`      | 设置边框的风格（0,1,2,3,4,5），0为无边框     |
+| `g:org#style#border`      | 设置边框的风格（0, 1, 2, 3, 4, 5），0为无边框     |
 | `g:org#style#bordercolor` | 设置边框颜色                                 |
 | `g:org#style#color`       | 设置结果文本的颜色                           |
 
 #### 边框样式
-| 边框编号 | 效果展示                                                                     |
+| 边框编号 |                                   效果展示                                   |
 |:--------:|:----------------------------------------------------------------------------:|
 |  border0 | <img src="./sceenshot/border0.png" alt="border0" height="50%" width="50%" /> |
 |  border1 | <img src="./sceenshot/border1.png" alt="border1" height="50%" width="50%" /> |
@@ -97,7 +97,7 @@ let g:language_path = {
             \ }
 
 ```
-5. `org#mian#runCodeBlock`为运行代码块的函数，`org#main#runLanguage`为运行某种语言的函数，你可以按照上面例子绑定到你所喜欢的按键上。
+5. `org#main#runCodeBlock`为运行代码块的函数，`org#main#runLanguage`为运行某种语言的函数，你可以按照上面例子绑定到你所喜欢的按键上。
 
 ---
 ## 致谢
