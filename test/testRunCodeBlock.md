@@ -7,7 +7,7 @@ a = np.ones((3,3))
 print("a = {}".format(a))
 
 print("=======Hello python==========")
-for i in range(10):
+for i in range(100):
     print(i)
 
 ```
