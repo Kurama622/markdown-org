@@ -10,7 +10,7 @@ ENGLISH  |  [中文版](./README_cn.md)
 
 ![language](./screenshot/markdown-org-language.gif)
 
-[More screenshots] (./screenshot)
+[More screenshots](./screenshot)
 ## Introduction
 
 1. You can preview the result of every code block in markdown, and the result will be showed in floating window. It does not discrupt your current winodw layout.
