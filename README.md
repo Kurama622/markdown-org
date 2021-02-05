@@ -13,9 +13,9 @@ ENGLISH  |  [中文版](./README_cn.md)
 [More screenshots](./screenshot)
 ## Introduction
 
-1. You can preview the result of every code block in markdown, and the result will be showed in floating window. It does not discrupt your current winodw layout.
+1. You can preview the result of every code block in markdown, and the result will be showed in floating window. It does not discrupt your current window layout.
 
-2. If there are mulitple language in your markdown, you can choose to run one of them. It will select all code blocks using the language, and run them in the order which they appear in the text. Finally, the result will be showed in floating winodw.
+2. If there are mulitple language in your markdown, you can choose to run one of them. It will select all code blocks using the language, and run them in the order which they appear in the text. Finally, the result will be showed in floating window.
 
 ## Install
 
