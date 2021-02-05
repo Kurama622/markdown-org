@@ -6,9 +6,11 @@
 
 ## 展示
 
-![codeblock](./sceenshot/markdown-org-codeblock.gif)
+![codeblock](./screenshot/markdown-org-codeblock.gif)
 
-![language](./sceenshot/markdown-org-language.gif)
+![language](./screenshot/markdown-org-language.gif)
+
+更多截图看[这里](./screenshot)
 
 ## 介绍
 
@@ -51,12 +53,12 @@ let g:default_quick_keys = 1
 #### 边框样式
 | 边框编号 |                                   效果展示                                   |
 |:--------:|:----------------------------------------------------------------------------:|
-|  border0 | <img src="./sceenshot/border0.png" alt="border0" height="50%" width="50%" /> |
-|  border1 | <img src="./sceenshot/border1.png" alt="border1" height="50%" width="50%" /> |
-|  border2 | <img src="./sceenshot/border2.png" alt="border2" height="50%" width="50%" /> |
-|  border3 | <img src="./sceenshot/border3.png" alt="border3" height="50%" width="50%" /> |
-|  border4 | <img src="./sceenshot/border4.png" alt="border4" height="50%" width="50%" /> |
-|  border5 | <img src="./sceenshot/border5.png" alt="border5" height="50%" width="50%" /> |
+|  border0 | <img src="./screenshot/border0.png" alt="border0" height="50%" width="50%" /> |
+|  border1 | <img src="./screenshot/border1.png" alt="border1" height="50%" width="50%" /> |
+|  border2 | <img src="./screenshot/border2.png" alt="border2" height="50%" width="50%" /> |
+|  border3 | <img src="./screenshot/border3.png" alt="border3" height="50%" width="50%" /> |
+|  border4 | <img src="./screenshot/border4.png" alt="border4" height="50%" width="50%" /> |
+|  border5 | <img src="./screenshot/border5.png" alt="border5" height="50%" width="50%" /> |
 
 ### 自定义参数和快捷键设置
 如果你不想使用默认配置，你可以自定义一些参数和快捷键。示例如下：
