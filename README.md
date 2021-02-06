@@ -15,7 +15,7 @@ ENGLISH  |  [中文版](./README_cn.md)
 
 1. You can preview the result of every code block in markdown, and the result will be showed in floating window. It does not discrupt your current window layout.
 
-2. If there are mulitple language in your markdown, you can choose to run one of them. It will select all code blocks using the language, and run them in the order which they appear in the text. Finally, the result will be showed in floating window.
+2. If there are mulitple languages in your markdown, you can choose to run one of them. It will select all code blocks using the language, and run them in the order which they appear in the text. Finally, the result will be showed in floating window.
 
 ## Install
 
@@ -85,7 +85,7 @@ nnoremap <silent> <M-l> :call org#main#runLanguage()<CR>
 
 3. `g:org#style#bordercolor` and `g:org#style#color` can be set different colors. You can choose a color from `keyword`, `Identifier`, `Statement`, `Comment`, `PreProc`, `Ignore`, `Label`, `Conditional`, `Exception`, etc. The final effect will depend on your current theme.
 
-4. `g:language_path` can be used to set different languages' evnironmental path. If your evnironment of the language is ok, default setting will work well. If your evnironment existes some problems, for example, when you input python, you can not enter interactive mode. In this case, you can write your python path into `g:language_path`:
+4. `g:language_path` can be used to set different languages' evnironmental path. If your evnironment of the language is ok, default setting will work well. If your evnironment exists some problems, for example, when you input python, you can not enter interactive mode. In this case, you can write your python path into `g:language_path`:
 
 ```vim
 let g:language_path = {
