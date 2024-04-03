@@ -49,8 +49,8 @@ func! org#main#runCodeBlock()
 endfunc
 
 func! org#main#runLanguage()
-    let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp && rm tmp")
-    let blockEnd = system("grep -wn \"^\\`\\`\\`\" " . expand('%') . " > tmp |awk -F: '{print $1}' tmp && rm tmp")
+    let blockStart = system("grep -n \"^\\`\\`\\`[a-zA-Z\\-\\\\+0-9]\\+\" " . expand('%') . " | awk -F: '{print $1}'")
+    let blockEnd = system("grep -wn \"^\\`\\`\\`\" " . expand('%') . " |awk -F: '{print $1}'")
     let b:startList = split(blockStart)
     let b:endList = split(blockEnd)
     execute('py3f ' . expand(s:runLanguagePath))

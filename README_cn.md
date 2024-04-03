@@ -20,14 +20,41 @@
 
 ## 安装
 
+如果你用`lazy.nvim`，你可以通过下面命令安装
+```lua
+{
+  "StubbornVegeta/markdown-org",
+  ft = "markdown",
+  config = function()
+    return {
+      default_quick_keys = 0,
+      border = 2,
+      bordercolor = "keyword",
+      color = "Identifier",
+      language_path = {
+        python = "python",
+        python3 = "python3",
+        go = "go",
+        c = "gcc",
+        cpp = "g++",
+      },
+    }
+  end,
+  keys = {
+    { "<leader>mr", "<cmd>call org#main#runCodeBlock()<cr>" },
+    { "<leader>ml", "<cmd>call org#main#runLanguage()<cr>" },
+  },
+},
+```
+
 如果你用`vim-plug`，你可以通过下面命令安装
 ```vim
-Plug 'demonlord1997/markdown-org', {'for':'markdown'}
+Plug 'StubbornVegeta/markdown-org', {'for':'markdown'}
 ```
 如果你用`dein`，你可以通过下面命令安装
 ```vim
 [[plugins]]
-repo = 'demonlord1997/markdown-org'
+repo = 'StubbornVegeta/markdown-org'
 on_ft = 'markdown'
 ```
 
