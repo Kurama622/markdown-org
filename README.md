@@ -27,9 +27,9 @@ If you use `lazy.nvim`, you can install by following commands:
   config = function()
     return {
       default_quick_keys = 0,
-      border = 2,
-      bordercolor = "keyword",
-      color = "Identifier",
+      vim.api.nvim_set_var("org#style#border", 2),
+      vim.api.nvim_set_var("org#style#bordercolor", "FloatBorder"),
+      vim.api.nvim_set_var("org#style#color", "String"),
       language_path = {
         python = "python",
         python3 = "python3",
