@@ -22,7 +22,7 @@ ENGLISH  |  [中文版](./README_cn.md)
 If you use `lazy.nvim`, you can install by following commands:
 ```lua
 {
-  "StubbornVegeta/markdown-org",
+  "Kurama622/markdown-org",
   ft = "markdown",
   config = function()
     return {
@@ -47,13 +47,13 @@ If you use `lazy.nvim`, you can install by following commands:
 ```
 If you use `vim-plug`, you can install by following commands:
 ```vim
-Plug 'StubbornVegeta/markdown-org', {'for':'markdown'}
+Plug 'Kurama622/markdown-org', {'for':'markdown'}
 ```
 
 If you use `dein`, you can install by following commands:
 ```vim
 [[plugins]]
-repo = 'StubbornVegeta/markdown-org'
+repo = 'Kurama622/markdown-org'
 on_ft = 'markdown'
 ```
 

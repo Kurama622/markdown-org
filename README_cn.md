@@ -23,7 +23,7 @@
 如果你用`lazy.nvim`，你可以通过下面命令安装
 ```lua
 {
-  "StubbornVegeta/markdown-org",
+  "Kurama622/markdown-org",
   ft = "markdown",
   config = function()
     return {
@@ -49,12 +49,12 @@
 
 如果你用`vim-plug`，你可以通过下面命令安装
 ```vim
-Plug 'StubbornVegeta/markdown-org', {'for':'markdown'}
+Plug 'Kurama622/markdown-org', {'for':'markdown'}
 ```
 如果你用`dein`，你可以通过下面命令安装
 ```vim
 [[plugins]]
-repo = 'StubbornVegeta/markdown-org'
+repo = 'Kurama622/markdown-org'
 on_ft = 'markdown'
 ```
 
