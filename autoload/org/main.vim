@@ -2,6 +2,7 @@ let s:runCodeBlockPath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/get
 let s:runLanguagePath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/recodelanguage.py'
 let s:runPath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/catCodeBlock.py'
 let g:language_path = get(g:, 'language_path', ' ')
+let g:org_output_to_clipboard = get(g:, 'org_output_to_clipboard', 0)
 
 "echo g:language_path['python']
 "
@@ -45,6 +46,9 @@ func! org#main#runCodeBlock()
         let resultList = split(resultText, '\n')
         let opts = {'index':g:org#listbox#cursor, 'title': 'RESULT', 'color':g:org#style#color, 'border':g:org#style#border, 'bordercolor':g:org#style#bordercolor}
         call org#listbox#inputlist(resultList, opts)
+        if g:org_output_to_clipboard == 1
+            let @+ = resultText
+        endif
     endif
 endfunc
 
@@ -67,6 +71,9 @@ func! org#main#run(selectLang)
     let resultList = split(b:resultText, '\n')
     let opts = {'title': 'RESULT', 'color':g:org#style#color,'border':g:org#style#border, 'bordercolor':g:org#style#bordercolor}
     call org#listbox#inputlist(resultList, opts)
+    if g:org_output_to_clipboard == 1
+        let @+ = b:resultText
+    endif
 endfunc
 
 "call org#main#runLanguage()
