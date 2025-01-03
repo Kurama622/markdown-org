@@ -74,6 +74,8 @@ let g:default_quick_keys = 1
 | `g:org#style#border`      | Set the style of border (0, 1, 2, 3, 4, 5), 0: no border                    |
 | `g:org#style#bordercolor` | Set the color of border                                                     |
 | `g:org#style#color`       | Set the color of result text                                                |
+| `g:org_output_to_clipboard`       | The result is automatically copied to the clipboard (default value: 0, Set to 1 to enable this feature).                                                |
+
 ### Border Style
 
 | Border number |                                     Show                                     |

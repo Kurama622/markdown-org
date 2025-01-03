@@ -26,18 +26,19 @@
   "Kurama622/markdown-org",
   ft = "markdown",
   config = function()
+    vim.g.language_path = {
+      python = "python",
+      python3 = "python3",
+      go = "go",
+      c = "gcc",
+      cpp = "g++",
+      bash = "bash",
+    }
     return {
       default_quick_keys = 0,
       vim.api.nvim_set_var("org#style#border", 2),
       vim.api.nvim_set_var("org#style#bordercolor", "FloatBorder"),
       vim.api.nvim_set_var("org#style#color", "String"),
-      language_path = {
-        python = "python",
-        python3 = "python3",
-        go = "go",
-        c = "gcc",
-        cpp = "g++",
-      },
     }
   end,
   keys = {
@@ -76,6 +77,8 @@ let g:default_quick_keys = 1
 | `g:org#style#border`      | 设置边框的风格（0, 1, 2, 3, 4, 5），0为无边框     |
 | `g:org#style#bordercolor` | 设置边框颜色                                 |
 | `g:org#style#color`       | 设置结果文本的颜色                           |
+| `g:org_output_to_clipboard`       | 结果自动复制到剪切板（默认值为0, 设置成1开启此功能）                           |
+
 
 #### 边框样式
 | 边框编号 |                                   效果展示                                   |
