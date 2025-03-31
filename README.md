@@ -29,9 +29,10 @@ If you use `lazy.nvim`, you can install by following commands:
       python = "python",
       python3 = "python3",
       go = "go",
-      c = "gcc",
-      cpp = "g++",
+      c = "gcc -Wall",
+      cpp = "g++ -std=c++11 -Wall",
       bash = "bash",
+      ["c++"] = "g++ -std=c++11 -Wall",
     }
     return {
       default_quick_keys = 0,
@@ -99,9 +100,9 @@ let g:language_path = {
             \ "python":"python",
             \ "python3":"python3",
             \ "go": "go",
-            \ "c": "gcc",
-            \ "cpp": "g++",
-            \ "c++": "g++",
+            \ "c": "gcc -Wall",
+            \ "cpp": "g++ -std=c++11 -Wall",
+            \ "c++": "g++ -std=c++11 -Wall",
             \ "javascript": "node",
             \ }
 nnoremap <silent> <M-b> :call org#main#runCodeBlock()<CR>
@@ -121,9 +122,9 @@ let g:language_path = {
             \ "python":"/usr/bin/python",
             \ "python3":"python3",
             \ "go": "go",
-            \ "c": "gcc",
-            \ "cpp": "g++",
-            \ "c++": "g++",
+            \ "c": "gcc -Wall",
+            \ "cpp": "g++ -std=c++11 -Wall",
+            \ "c++": "g++ -std=c++11 -Wall",
             \ "javascript": "node",
             \ }
 ```
