@@ -1,19 +1,18 @@
 if get(g:, 'language_path', {}) == {}
-    let g:language_path = {
-                \ "python":"python",
-                \ "python3":"python3",
-                \ "go": "go",
-                \ "c": "gcc -Wall",
-                \ "cpp": "g++ -std=c++11 -Wall",
-                \ "c++": "g++ -std=c++11 -Wall",
-                \ "javascript": "node",
-                \ }
+  let g:language_path = {
+        \ "python":"python",
+        \ "python3":"python3",
+        \ "go": "go",
+        \ "c": "gcc -Wall",
+        \ "cpp": "g++ -std=c++11 -Wall",
+        \ "c++": "g++ -std=c++11 -Wall",
+        \ "javascript": "node",
+        \ }
 endif
 
 if get(g:, 'default_quick_keys', 1)
-    nnoremap <M-b> :call org#main#runCodeBlock()<CR>
-    nnoremap <M-l> :call org#main#runLanguage()<CR>
+  nnoremap <M-b> :call org#main#runCodeBlock()<CR>
+  nnoremap <M-l> :call org#main#runLanguage()<CR>
 endif
 
 finish
-

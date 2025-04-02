@@ -22,7 +22,7 @@ b.vars['language'] = language
 b.vars['languageKinds'] = languageKinds
 content = []
 for lang in languageKinds:
-    content.append([" \t {}".format(lang), 'call org#main#run("{}")'.format(lang)])
+    content.append(
+        [" \t {}".format(lang), 'call org#main#run("{}")'.format(lang)])
 
 b.vars['content'] = content
-

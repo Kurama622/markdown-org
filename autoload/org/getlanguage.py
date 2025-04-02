@@ -13,5 +13,3 @@ else:
         b.vars['language'] = curLineText[start:end]
     except:
         b.vars['language'] = ''
-
-
